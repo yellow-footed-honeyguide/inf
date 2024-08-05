@@ -42,9 +42,11 @@
 ## Installation
 1. Clone the repository:
 git clone https://github.com/yellow-footed-honeyguide/inf.git
-Copy2. Navigate to the project directory:
+
+2. Navigate to the project directory:
 cd inf
-Copy3. Install the required Python package:
+
+3. Install the required Python package:
 pip install rich
 
 ## Usage
