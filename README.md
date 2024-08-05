@@ -4,13 +4,12 @@
 The File Information Utility is a powerful command-line tool designed to provide detailed information about files and directories. It offers a comprehensive analysis of various file types, presenting the data in a well-formatted, easy-to-read table.
 
 ## Features
-- Detailed file analysis for various file types (text, audio, video, PDF, executables)
-- Well-formatted output using rich tables
-- Support for directory analysis
-- Comprehensive text file analysis (line count, word count, character count)
-- Audio and video file metadata extraction
-- PDF file information retrieval
-- Executable file details
+📊 представляет анализ и статистику
+🎨 символизирует форматирование и визуальное представление
+📁 обозначает работу с директориями
+📝 ассоциируется с текстовыми файлами и анализом
+🎵 представляет аудио и видео файлы
+📄 символизирует PDF-документы
 
 ## Requirements
 ### Supported Operating Systems
