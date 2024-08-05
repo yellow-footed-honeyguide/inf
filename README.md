@@ -13,12 +13,12 @@
    your workflow more efficient and informative.
 
 ## Features
-- 📊 представляет анализ и статистику<br>
-- 🎨 символизирует форматирование и визуальное представление<br>
-- 📁 обозначает работу с директориями<br>
-- 📝 ассоциируется с текстовыми файлами и анализом<br>
-- 🎵 представляет аудио и видео файлы<br>
-- 📄 символизирует PDF-документы
+- 📊 Represents analysis and statistics<br>
+- 🎨 Symbolizes formatting and visual presentation<br>
+- 📁 Denotes work with directories<br>
+- 📝 Associated with text files and analysis<br>
+- 🎵 Represents audio and video files<br>
+- 📄 Symbolizes PDF documents
 
 ## Requirements
 ### Supported Operating Systems
