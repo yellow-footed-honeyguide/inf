@@ -52,13 +52,13 @@ python3 file_info.py [OPTIONS] <file_or_directory_path>
 - `-v`, `--version`: Show program's version number and exit
 
 ## Examples
-1. Analyze a text file:
+1. Analyze a text file:<br>
 `inf document.txt`
 
-2. Get information about a video file:
+2. Get information about a video file:<br>
 `inf video.mp4`
 
-3. Analyze a directory:
+3. Analyze a directory:<br>
 `inf /path/to/directory`
 
 ## Contributing
