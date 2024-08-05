@@ -40,9 +40,9 @@
 - rich
 
 ## Installation
-```
+`
 sudo pip install git+https://github.com/yellow-footed-honeyguide/inf.git
-```
+`
 
 ## Usage
 python3 file_info.py [OPTIONS] <file_or_directory_path>
@@ -53,13 +53,13 @@ python3 file_info.py [OPTIONS] <file_or_directory_path>
 
 ## Examples
 1. Analyze a text file:
-```inf document.txt```
+`inf document.txt`
 
 2. Get information about a video file:
-```inf video.mp4```
+`inf video.mp4`
 
 3. Analyze a directory:
-```inf /path/to/directory```
+`inf /path/to/directory`
 
 ## Contributing
 Contributions to the File Information Utility are welcome! Please feel free to submit a Pull Request.
