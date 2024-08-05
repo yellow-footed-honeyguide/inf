@@ -53,11 +53,13 @@ python3 file_info.py [OPTIONS] <file_or_directory_path>
 
 ## Examples
 1. Analyze a text file:
-python3 file_info.py document.txt
+```inf document.txt```
+
 2. Get information about a video file:
-python3 file_info.py movie.mp4
+```inf video.mp4```
+
 3. Analyze a directory:
-python3 file_info.py /path/to/directory
+```inf /path/to/directory```
 
 ## Contributing
 Contributions to the File Information Utility are welcome! Please feel free to submit a Pull Request.
