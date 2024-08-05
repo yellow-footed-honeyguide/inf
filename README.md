@@ -1,15 +1,24 @@
 # File Information Utility
 
 ## Overview
-The File Information Utility is a powerful command-line tool designed to provide detailed information about files and directories. It offers a comprehensive analysis of various file types, presenting the data in a well-formatted, easy-to-read table.
+
+📊 The File Information Utility is a powerful command-line tool that provides:
+
+- 🔍 Detailed information about files and directories
+- 📊 Comprehensive analysis of various file types
+- 📋 Data presentation in well-formatted, easy-to-read tables
+
+🚀 Whether you're a developer, system administrator, or power user, this tool 
+   streamlines the process of gathering and visualizing file metadata, making 
+   your workflow more efficient and informative.
 
 ## Features
-📊 представляет анализ и статистику<br>
-🎨 символизирует форматирование и визуальное представление<br>
-📁 обозначает работу с директориями<br>
-📝 ассоциируется с текстовыми файлами и анализом<br>
-🎵 представляет аудио и видео файлы<br>
-📄 символизирует PDF-документы
+- 📊 представляет анализ и статистику<br>
+- 🎨 символизирует форматирование и визуальное представление<br>
+- 📁 обозначает работу с директориями<br>
+- 📝 ассоциируется с текстовыми файлами и анализом<br>
+- 🎵 представляет аудио и видео файлы<br>
+- 📄 символизирует PDF-документы
 
 ## Requirements
 ### Supported Operating Systems
@@ -48,11 +57,11 @@ python3 file_info.py [OPTIONS] <file_or_directory_path>
 ## Examples
 1. Analyze a text file:
 python3 file_info.py document.txt
-Copy2. Get information about a video file:
+2. Get information about a video file:
 python3 file_info.py movie.mp4
-Copy3. Analyze a directory:
+3. Analyze a directory:
 python3 file_info.py /path/to/directory
-Copy
+
 ## Contributing
 Contributions to the File Information Utility are welcome! Please feel free to submit a Pull Request.
 
