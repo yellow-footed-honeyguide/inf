@@ -53,7 +53,7 @@ python3 file_info.py [OPTIONS] <file_or_directory_path>
 
 ## Examples
 1. Analyze a text file:<br>
-`❯ inf document.txt`
+`❯ inf ./docs/document.txt`
 
 2. Get information about a video file:<br>
 `❯ inf video.mp4`
