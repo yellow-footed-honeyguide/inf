@@ -2,75 +2,95 @@
 
 ## Overview
 
-📊 The File Information Utility is a powerful command-line tool that provides:
-
-- 🔍 Detailed information about files and directories
+- 📊 The File Information Utility is a powerful command-line tool written in C that provides:
+- 🔍 Detailed information about files
 - 📊 Comprehensive analysis of various file types
-- 📋 Data presentation in well-formatted, easy-to-read tables
+- 📋 Data presentation in an easy-to-read format
 
 🚀 Whether you're a developer, system administrator, or power user, this tool 
    streamlines the process of gathering and visualizing file metadata, making 
    your workflow more efficient and informative.
 
+
 ## Features
-- 📊 представляет анализ и статистику<br>
-- 🎨 символизирует форматирование и визуальное представление<br>
-- 📁 обозначает работу с директориями<br>
-- 📝 ассоциируется с текстовыми файлами и анализом<br>
-- 🎵 представляет аудио и видео файлы<br>
-- 📄 символизирует PDF-документы
+
+- 📊 Basic file information (size, permissions, last modified date)
+- 🔠 MIME type detection
+- 📝 Text file analysis (line, word, and character count)
+- 🖼️ Image file information (dimensions, color space)
+- 🎥 Video file duration
+- 📄 PDF document details
+- 📦 Archive file information (file count, total uncompressed size)
 
 ## Requirements
+
 ### Supported Operating Systems
+
 - Linux
-- macOS
 - Unix-like systems
 
 ### System Dependencies
-- file
-- du
-- pdfinfo
-- ffprobe
 
-### Python Version
-- Developed on Python 3.12
-- Compatible with Python 3.8+
-
-### Python Dependencies
-- rich
+- libmagic
+- ImageMagick (for image analysis)
+- FFmpeg (for video analysis)
+- Poppler (for PDF analysis)
+- p7zip (for archive analysis)
 
 ## Installation
-`
-sudo pip install git+https://github.com/yellow-footed-honeyguide/inf.git
-`
+
+### Building from Source
+
+1. Clone the repository:
+```
+git clone https://github.com/yellow-footed-honeyguide/inf.git
+cd inf
+mkdir build
+cd build
+meson ..
+ninja
+```
+or install utility system-wide:
+```
+sudo ninja install
+```
 
 ## Usage
-python3 file_info.py [OPTIONS] <file_or_directory_path>
+inf [OPTIONS] <file_path>
 
 ### Options
+
 - `-h`, `--help`: Show help message and exit
 - `-v`, `--version`: Show program's version number and exit
 
 ## Examples
-1. Analyze a text file:<br>
-`❯ inf ./docs/document.txt`
 
-2. Get information about a video file:<br>
-`❯ inf video.mp4`
+1. Analyze a text file:
+inf ./docs/document.txt
 
-3. Analyze a directory:<br>
-`❯ inf /path/to/directory`
+2. Get information about a video file:
+inf video.mp4
+
+3. Analyze a PDF document:
+inf document.pdf
+
 
 ## Contributing
+
 Contributions to the File Information Utility are welcome! Please feel free to submit a Pull Request.
 
+
 ## License
+
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+
 ## Author
+
 - **Sergey Veneckiy**
 - Email: s.venetsky@gmail.com
 - GitHub: [@yellow-footed-honeyguide](https://github.com/yellow-footed-honeyguide)
 
 ## Acknowledgments
-- This project uses the [rich](https://github.com/willmcgugan/rich) 
+
+- This project uses various open-source libraries and tools, including libmagic, ImageMagick, FFmpeg, Poppler, and p7zip.
