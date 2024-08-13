@@ -77,12 +77,27 @@ char *execute_command(const char *command) {
     return output;
 }
 
+char* format_size(off_t size) {
+    const char* units[] = {"B", "KB", "MB", "GB", "TB"};
+    int i = 0;
+    double formatted_size = size;
+    
+    while (formatted_size >= 1024 && i < 4) {
+        formatted_size /= 1024;
+        i++;
+    }
+    
+    char* result = malloc(20);  // Достаточно для большинства размеров
+    snprintf(result, 20, "%.2f %s", formatted_size, units[i]);
+    return result;
+}
+
 void get_basic_info(const char *path) {
     struct stat st;
     if (stat(path, &st) == 0) {
-        char size_str[20];
-        snprintf(size_str, sizeof(size_str), "%ld bytes", st.st_size);
-        add_info("Size", size_str);
+        char* formatted_size = format_size(st.st_size);
+        add_info("Size", formatted_size);
+        free(formatted_size);
 
         char *time_str = ctime(&st.st_mtime);
         time_str[strlen(time_str) - 1] = '\0';  // Remove newline
@@ -177,60 +192,21 @@ void get_image_info(const char *path) {
     }
 }
 
-void get_audio_info(const char *path) {
+void get_video_duration(const char *path) {
     char command[MAX_COMMAND_LENGTH];
-    snprintf(command, sizeof(command), "ffprobe -v error -show_entries stream=codec_name,bit_rate,sample_rate -of default=noprint_wrappers=1 '%s'", path);
+    snprintf(command, sizeof(command), "ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 '%s'", path);
     char *output = execute_command(command);
     if (output) {
-        char *line = strtok(output, "\n");
-        while (line) {
-            char *key = strtok(line, "=");
-            char *value = strtok(NULL, "=");
-            if (key && value) {
-                if (strcmp(key, "codec_name") == 0) {
-                    add_info("Codec", value);
-                } else if (strcmp(key, "bit_rate") == 0) {
-                    add_info("Bit rate", value);
-                } else if (strcmp(key, "sample_rate") == 0) {
-                    add_info("Sample rate", value);
-                }
-            }
-            line = strtok(NULL, "\n");
-        }
-        free(output);
-    }
-}
-
-void get_video_info(const char *path) {
-    char command[MAX_COMMAND_LENGTH];
-    snprintf(command, sizeof(command), "ffprobe -v error -select_streams v:0 -count_packets -show_entries stream=width,height,avg_frame_rate,codec_name,duration -of default=noprint_wrappers=1 '%s'", path);
-    char *output = execute_command(command);
-    if (output) {
-        char *line = strtok(output, "\n");
-        while (line) {
-            char *key = strtok(line, "=");
-            char *value = strtok(NULL, "=");
-            if (key && value) {
-                if (strcmp(key, "width") == 0) {
-                    char dimensions[50];
-                    snprintf(dimensions, sizeof(dimensions), "%sx", value);
-                    line = strtok(NULL, "\n");
-                    key = strtok(line, "=");
-                    value = strtok(NULL, "=");
-                    if (key && value && strcmp(key, "height") == 0) {
-                        strcat(dimensions, value);
-                        add_info("Dimensions", dimensions);
-                    }
-                } else if (strcmp(key, "avg_frame_rate") == 0) {
-                    add_info("Frame rate", value);
-                } else if (strcmp(key, "codec_name") == 0) {
-                    add_info("Codec", value);
-                } else if (strcmp(key, "duration") == 0) {
-                    add_info("Duration", value);
-                }
-            }
-            line = strtok(NULL, "\n");
-        }
+        double duration = atof(output);
+        int hours = (int)duration / 3600;
+        int minutes = ((int)duration % 3600) / 60;
+        int seconds = (int)duration % 60;
+        int milliseconds = (int)((duration - (int)duration) * 1000);
+        
+        char duration_str[30];
+        snprintf(duration_str, sizeof(duration_str), "%02d:%02d:%02d.%03d", hours, minutes, seconds, milliseconds);
+        add_info("Duration", duration_str);
+        
         free(output);
     }
 }
@@ -294,6 +270,8 @@ void process_file(const char *path) {
             get_text_file_info(path);
         } else if (strstr(file_type, "image")) {
             get_image_info(path);
+        } else if (strstr(file_type, "video") || strstr(file_type, "MP4")) {
+            get_video_duration(path);
         } else if (strstr(file_type, "PDF")) {
             get_pdf_info(path);
         } else if (strstr(file_type, "archive") || strstr(file_type, "compressed")) {
@@ -320,7 +298,6 @@ void display_info() {
         printf("%-*s : %s\n", max_key_width, info_array.data[i].key, info_array.data[i].value);
     }
 }
-
 
 int main(int argc, char *argv[]) {
     if (argc != 2) {
