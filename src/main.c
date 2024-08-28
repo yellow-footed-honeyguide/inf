@@ -15,7 +15,7 @@ void print_usage(const char* program_name) {
 
 // Function to print version information
 void print_version() {
-    printf("file_info version %s\n", FILE_INFO_VERSION);
+    printf("inf version %s\n", FILE_INFO_VERSION);
 }
 
 int main(int argc, char *argv[]) {
