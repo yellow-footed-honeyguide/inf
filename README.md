@@ -7,9 +7,7 @@
 - 📊 Comprehensive analysis of various file types
 - 📋 Data presentation in an easy-to-read format
 
-🚀 Whether you're a developer, system administrator, or power user, this tool 
-   streamlines the process of gathering and visualizing file metadata, making 
-   your workflow more efficient and informative.
+🚀 Whether you're a developer, system administrator, or power user, this tool streamlines the process of gathering and visualizing file metadata, making your workflow more efficient and informative.
 
 
 ## Features
@@ -41,7 +39,7 @@
 
 ### Building from Source
 
-1. Clone the repository:
+Clone the repository:
 ```
 git clone https://github.com/yellow-footed-honeyguide/inf.git
 cd inf
@@ -60,19 +58,14 @@ inf [OPTIONS] <file_path>
 
 ### Options
 
-- `-h`, `--help`: Show help message and exit
+- `-h`, `--help`   : Show help message and exit
 - `-v`, `--version`: Show program's version number and exit
 
 ## Examples
 
-1. Analyze a text file:
-inf ./docs/document.txt
-
-2. Get information about a video file:
-inf video.mp4
-
-3. Analyze a PDF document:
-inf document.pdf
+1. Analyze a text file: `inf ./docs/document.txt`
+2. Get information about a video file: `inf video.mp4`
+3. Analyze a PDF document: `inf document.pdf`
 
 
 ## Contributing
@@ -87,7 +80,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Author
 
-- **Sergey Veneckiy**
+**Sergey Veneckiy**
 - Email: s.venetsky@gmail.com
 - GitHub: [@yellow-footed-honeyguide](https://github.com/yellow-footed-honeyguide)
 
